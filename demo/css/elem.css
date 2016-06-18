@@ -1,0 +1,237 @@
+body{
+    background: #eee;
+}
+
+a:hover{
+    text-decoration: none;
+}
+.shopInfo{
+    background-image: url(../img/shop-bg.jpg);
+    color: white;
+    height: 190px;
+}
+
+.shopInfo .img-circle{
+    border:3px solid #888;
+    height: 100px;
+    margin-right: 20px;
+}
+
+
+
+.shopInfo .col-md-10{
+    position: relative;
+    height: 190px;
+}
+.shopInfo1{
+    width:40%;
+    height: 100px;
+    position: absolute;
+    top:50%;
+    margin-top:-50px;
+    
+    
+}
+
+.shopInfo .tag{
+    padding:3px;
+    border-radius: 5px;
+    background: #444;
+}
+
+.likeshop{
+    width:78px;
+    height: 63px;
+    border-radius: 10px;
+    background:rgba(40,40,40,0.5);
+      text-align: center;
+      font-size: 16px;
+     padding-top: 8px;
+
+}
+
+.wuliuInfo table{
+    font-size: 18px;
+    height: 100px;
+    width: 400px;
+    text-align: center;
+    margin-top:50px;
+ 
+}
+.wuliuInfo td{
+    padding:5px 10px;
+}
+
+.wuliuInfo tr:first-child{
+    font-size: 15px;
+}
+
+.shopNav{
+    height: 57px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 55px;
+}
+
+
+.shopNav a{
+    color: #444;
+}
+
+.shopNav li{
+    margin-bottom:-2px;
+    padding:0 15px;
+    
+}
+.shopNav li.active{
+    border-bottom: 3px solid #0089dc;
+    color: #0089dc;
+    
+}
+
+.shopNav a:hover
+{
+    text-decoration:none;
+}
+.shopNav .cut{
+    color: #aaa;
+}
+
+.listNav{
+    width: 70%;
+    background: #fff;
+    font-size: 15px;
+    padding-left: 10px;
+    margin-top: 20px;
+    
+    
+}
+
+.listNav li{
+    height: 25px;
+    width: 150px;
+    line-height: 25px;
+    margin:10px 5px;
+    border-radius: 3px;
+}
+.listNav li:hover{
+    
+    background: #eee;
+    
+}
+.listNav a{
+    color: #555;
+}
+.listNav .active a{
+    color: #fff;
+}
+
+.listNav li.active{
+    background: #0089dc;
+}
+
+.hot{
+    width:70%;
+}
+
+.hot .food{
+    width:390px;
+    background: #fff;
+    height: 100px;
+    position: relative;
+    margin-right: 10px;
+}
+.hot .food>h5{
+    margin-bottom:3px;
+    padding-top:10px;
+    
+}
+
+.hot .food>small,
+.hot .food>p
+{
+    color: #888;
+    font-size: 13px;
+    
+}
+.hot .food>p
+{
+    margin-bottom: 5px;
+    margin-top:5px;
+}
+.hot .food .putincart{
+    position: absolute;
+    bottom:5px;
+    right: 10px;
+    outline: none;
+    
+}
+
+.hot .food price{
+    color: red;
+    font-weight: 500;
+    
+}
+
+
+.food .amount{
+  
+    position: absolute;
+      bottom:5px;
+    right: 10px;
+ 
+    
+    
+}
+
+
+.amount{
+      width: 110px;
+    height: 29px;
+       display: none;
+}
+
+.oneOrder{
+    overflow: hidden;
+}
+.oneOrder > *{
+    float:left;
+}
+
+.shopcart .amount{
+    display: table;
+}
+
+.shopcart{
+    width: 317px;
+    position: fixed;
+    bottom:0px;
+    right: 0px;
+    
+}
+
+.shopcart .bottom{
+    height: 40px;
+    background: #444;
+    color: #fff;
+    line-height: 40px;
+    font-size: 18px;
+    padding-left: 5px;
+}
+.shopcart .bottom .pay{
+  background: green;
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+  
+  
+     
+}
+.shopcart .bottom   a
+{
+    color: #fff;
+}
+
+
+
