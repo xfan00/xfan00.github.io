@@ -4,17 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>小梵大魔王博客</title>
+  <title>从倒计时demo讲js插件编写 | 小梵大魔王博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我是要成为大魔王的喵">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小梵大魔王博客">
-<meta property="og:url" content="http://xfan00.github.io/index.html">
+  <meta name="description" content="在电商网站中我们经常会遇到各种倒计时的场景。
+所以，我们来写一个。。
+纯function版。大部分童鞋当开始应该都是这样吧，，然后把function，各种拷贝啊。。其实这样时不对的。。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从倒计时demo讲js插件编写">
+<meta property="og:url" content="http://xfan00.github.io/2015/09/20/从倒计时demo讲js插件编写/index.html">
 <meta property="og:site_name" content="小梵大魔王博客">
-<meta property="og:description" content="我是要成为大魔王的喵">
+<meta property="og:description" content="在电商网站中我们经常会遇到各种倒计时的场景。
+所以，我们来写一个。。
+纯function版。大部分童鞋当开始应该都是这样吧，，然后把function，各种拷贝啊。。其实这样时不对的。。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354function">
+<meta property="og:updated_time" content="2016-06-19T08:26:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小梵大魔王博客">
-<meta name="twitter:description" content="我是要成为大魔王的喵">
+<meta name="twitter:title" content="从倒计时demo讲js插件编写">
+<meta name="twitter:description" content="在电商网站中我们经常会遇到各种倒计时的场景。
+所以，我们来写一个。。
+纯function版。大部分童鞋当开始应该都是这样吧，，然后把function，各种拷贝啊。。其实这样时不对的。。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354function">
   
     <link rel="alternative" href="/atom.xml" title="小梵大魔王博客" type="application/atom+xml">
   
@@ -190,152 +197,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-使用OOP编写饿了么点单页面" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/18/使用OOP编写饿了么点单页面/" class="article-date">
-  	<time datetime="2016-06-18T06:25:15.000Z" itemprop="datePublished">2016-06-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/18/使用OOP编写饿了么点单页面/">使用OOP编写饿了么点单页面</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在图书馆看书，老是用饿了么pc版点单。<br>男票挑衅：“你也写一个呗。”<br>“写一个，写一个🈶️什么难的。。”，然后我默默打看控制台。。。<br>然后发现他们是用angular写的。<br>当时内心是这样的：“angular，angular，angular。。。我不会啊。。”</p>
-<p>所以只能重写了。</p>
-<p>－－－－华丽的分割线－－－－</p>
-<p>首先，我们拿到的是这么一张页面<br><img src="http://ww3.sinaimg.cn/large/9615c400gw1f4zdfg8zamj210r0jnagq.jpg" alt=""></p>
-<p>头部：切图加数据渲染，，本宝宝拒绝写这个。<br>页面主体交互启示就是，菜单里边的《加入购物车》和《购物车里边》的，然后有个及联操作。</p>
-<p>第一个反应，就要操起键盘开始写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(document).on(&apos;.J-add&apos;,&apos;click&apos;,function()&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>想了想，放弃了。</p>
-<p>写都写了，，总的写点稍微高级一点的吧。。</p>
-<p>好吧。能力受限，我决定尝试使用OOP来写。</p>
-<p>首先，我们定义一个Menu 构造器。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Menu</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = $(obj.ele);</span><br><span class="line">    <span class="keyword">this</span>.title = obj.title;</span><br><span class="line">    <span class="keyword">this</span>.price = obj.price;</span><br><span class="line">    <span class="keyword">this</span>.bind();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Menu.prototype = &#123;</span><br><span class="line">    <span class="comment">// 标题</span></span><br><span class="line">    title:<span class="string">''</span>,</span><br><span class="line">    <span class="comment">// 价格</span></span><br><span class="line">    price:<span class="literal">null</span>,</span><br><span class="line">    <span class="comment">// 点单数</span></span><br><span class="line">    count:<span class="number">0</span>,</span><br><span class="line">    <span class="comment">// dom节点</span></span><br><span class="line">    $el:<span class="literal">null</span>,</span><br><span class="line">    <span class="comment">// 购物车里的副本</span></span><br><span class="line">    $target:<span class="literal">null</span>,</span><br><span class="line">    <span class="comment">// 绑定</span></span><br><span class="line">    bind:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 加入购物车</span></span><br><span class="line">    select:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 加一</span></span><br><span class="line">    add:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 减一</span></span><br><span class="line">    reduce:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 移出购物车</span></span><br><span class="line">    unselect:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>嗯嗯，，基本的人设就是这样了，，毕竟就是个菜单吗，，难道还能飞起来。。 ε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘</p>
-<p>然后就去实现具体方法了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">bind:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.$el.on(<span class="string">"click"</span>, <span class="string">".putincart"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        _this.select();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.$el.on(<span class="string">"click"</span>, <span class="string">".add"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        _this.add();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.$el.on(<span class="string">"click"</span>, <span class="string">".reduce"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        _this.reduce();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.$el.on(<span class="string">"change"</span>,<span class="string">"input"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        _this.count= <span class="built_in">parseInt</span>($(<span class="keyword">this</span>).val());</span><br><span class="line">        <span class="keyword">if</span>(_this.count&lt;<span class="number">0</span> || <span class="built_in">isNaN</span>(_this.count))&#123;</span><br><span class="line">            alert(<span class="string">"你到底要多少呀？ps：郑超是笨蛋"</span>);</span><br><span class="line">            _this.count=<span class="number">1</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        _this.add();</span><br><span class="line">        _this.reduce();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line">select : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.$el.find(<span class="string">".amount"</span>).css(<span class="string">"display"</span>, <span class="string">"table"</span>);</span><br><span class="line">    <span class="keyword">this</span>.$el.find(<span class="string">".amount input"</span>).val(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data = &#123;</span><br><span class="line">        title: <span class="keyword">this</span>.title,</span><br><span class="line">        price: <span class="keyword">this</span>.price,</span><br><span class="line">        count: <span class="keyword">this</span>.count</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> html = template(<span class="string">"order"</span>, data);</span><br><span class="line">    <span class="keyword">this</span>.$target = $(html);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">this</span>.$target.on(<span class="string">"click"</span>, <span class="string">".add"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        _this.add();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">this</span>.$target.on(<span class="string">"click"</span>, <span class="string">".reduce"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        _this.reduce();</span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">".orderList"</span>).append(<span class="keyword">this</span>.$target);</span><br><span class="line">&#125;,</span><br><span class="line">add : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.count++;</span><br><span class="line">    <span class="keyword">this</span>.$el.find(<span class="string">".amount input"</span>).val(<span class="keyword">this</span>.count);</span><br><span class="line">    <span class="keyword">this</span>.$target.find(<span class="string">".amount input"</span>).val(<span class="keyword">this</span>.count);</span><br><span class="line">    <span class="keyword">this</span>.$target.find(<span class="string">".price"</span>).text(<span class="keyword">this</span>.count * <span class="keyword">this</span>.price);</span><br><span class="line">&#125;,</span><br><span class="line">reduce : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.count == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.unselect();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.count--;</span><br><span class="line">    <span class="keyword">this</span>.$el.find(<span class="string">".amount input"</span>).val(<span class="keyword">this</span>.count);</span><br><span class="line">    <span class="keyword">this</span>.$target.find(<span class="string">".amount input"</span>).val(<span class="keyword">this</span>.count);</span><br><span class="line">    <span class="keyword">this</span>.$target.find(<span class="string">".price"</span>).text(<span class="keyword">this</span>.count * <span class="keyword">this</span>.price);</span><br><span class="line">&#125;,</span><br><span class="line">unselect : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.$el.find(<span class="string">".amount"</span>).css(<span class="string">"display"</span>, <span class="string">"none"</span>);</span><br><span class="line">    <span class="keyword">this</span>.$target.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>看到这里，眼见的同学就会说了：<br>“工作不饱和啊。”<br>“增加和减少为什么不能再封装一下，加个type就可以了。”<br>“balabala”。</p>
-<p>首先，我很欣赏你这种认真的态度。<br>其次，这东西是拿来哄男票的，而已。(￢_￢)</p>
-<p>再见！≖‿≖✧ o‿≖✧(๑•̀ㅂ•́)و✧</p>
-<p><a href="/demo/elem.html">demo</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-聊一聊bootstrap" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/01/聊一聊bootstrap/" class="article-date">
-  	<time datetime="2016-04-01T11:50:00.000Z" itemprop="datePublished">2016-04-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/01/聊一聊bootstrap/">聊一聊Bootstrap</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</p>
-</blockquote>
-<p>我记得有个戏谑的说法是这样的。</p>
-<blockquote>
-<p>后端老是让前端改样式，做个html什么的。。<br> 有一天前端忍不住了，“对方不想跟你说话，并且扔了一个Bootstrap给你”。<br> 于是有了Bootstrap; </p>
-</blockquote>
-<p>无论如何，Bootstrap，这个来自 Twitter 的ui框架，确实已经火了很多年。<br>虽然，也有某些前端后端觉得BS很low很丑。</p>
-<p>那么出了可以快速开发以外我们还能从它得到什么。</p>
-<p>1.合理又可扩展的html结构</p>
-<p>刚开始用bs的时候总觉得，bs真是拧巴，明明一个div完成的东西，非得写好几层。。<br>产品改了几次需求之后就发现，，还是它写的比较好。<br>具体例子可以参考navbar 部分。</p>
-<p>2.对class 的定义。</p>
-<p>bs的class都是通过语意来定义。<br>对比一下：<br><code>btn-primary</code> 和 <code>btn-blue</code><br><code>label-primary</code> 和 <code>label-blue</code></p>
-<p>语义定义，使得换肤更简单。。（不信，你用btn-blue做换肤试试，一般会被接盘侠打死。。）</p>
-<p>3.jQuery 插件定义。</p>
-<p>bs里边的插件有一种很明确的jquery插件风格。<br>然后把实例绑定在dom节点的data(‘bs.<em>*</em>‘)上边。<br>当然还有事件定义，组件初始化等等，，自己去看。</p>
-<p>4.兼容性和代码量的权衡<br>bs有很多版本。每个版本都在做兼容性，代码量和功能的权衡。<br>比如兼容更好的v2 和 兼容性只到ie9但是提供了一整套响应式布局方案的v3，以及没有出就知道几乎不考虑兼容性的v4.</p>
-<p>5.less 代码组织<br>bs 的less 源码，这个自己去看。</p>
-<p>最后回答之前说的那个问题</p>
-<p>bs真的low吗？<br>代码简单不代表思想简单。</p>
-<p>用bs的真的就low吗？<br>这个要看怎么用，用什么。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-从倒计时demo讲js插件编写" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-从倒计时demo讲js插件编写" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/09/20/从倒计时demo讲js插件编写/" class="article-date">
@@ -351,12 +213,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/从倒计时demo讲js插件编写/">从倒计时demo讲js插件编写</a>
+    <h1 class="article-title" itemprop="name">
+      从倒计时demo讲js插件编写
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -378,29 +247,72 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/01/聊一聊bootstrap/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          聊一聊Bootstrap
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
 
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="从倒计时demo讲js插件编写" data-title="从倒计时demo讲js插件编写" data-url="http://xfan00.github.io/2015/09/20/从倒计时demo讲js插件编写/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -424,8 +336,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
